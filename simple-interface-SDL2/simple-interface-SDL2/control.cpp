@@ -1,0 +1,82 @@
+#include "control.h"
+
+Control::Control(SDL_Renderer* _renderer, SDL_Rect _sizes, string _font, int _font_size)
+{
+	renderer = _renderer;
+	font_size = _font_size;
+	*sizes = _sizes;
+
+	label = "";
+
+	block = false;
+	display = true;
+
+	font = TTF_OpenFont(_font.c_str(), _font_size);
+}
+
+Control::~Control()
+{
+	TTF_CloseFont(font);
+}
+
+void Control::render()
+{
+	// virtual
+}
+
+void Control::renderLabel(string text, SDL_Rect* place)
+{
+	SDL_Texture* textTexture = nullptr;
+	SDL_Surface* textSurface = nullptr;
+	SDL_Color color = { 0x00, 0x00, 0x00, 0x00 };
+	SDL_Rect text_rect;
+
+	textSurface = TTF_RenderUTF8_Blended(font, text.c_str(), color);
+	if (textSurface == nullptr)
+		return;
+
+	text_rect.w = textSurface->w;
+	text_rect.h = textSurface->h;
+	
+	text_rect.x = place->x + place->w / 2 - textSurface->w / 2;
+	text_rect.y = place->y + place->h / 2 - textSurface->h / 1.88;
+
+	textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+	SDL_RenderCopy(renderer, textTexture, NULL, &text_rect);
+
+	SDL_FreeSurface(textSurface);
+	SDL_DestroyTexture(textTexture);
+}
+
+void Control::Block(bool value)
+{
+	block = value;
+}
+
+bool Control::Block()
+{
+	return block;
+}
+
+void Control::Display(bool value)
+{
+	display = value;
+}
+
+bool Control::Display()
+{
+	return display;
+}
+
+bool Control::Hover(int x, int y)
+{
+	SDL_Point point = { x, y };
+	if (!block && display)
+		return SDL_PointInRect(&point, sizes);
+	return false;
+}
+
+void Control::onEvent(SDL_Event* event)
+{
+	// virtual
+}
