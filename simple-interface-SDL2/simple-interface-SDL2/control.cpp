@@ -28,10 +28,9 @@ void Control::renderLabel(string text, SDL_Rect* place)
 {
 	SDL_Texture* textTexture = nullptr;
 	SDL_Surface* textSurface = nullptr;
-	SDL_Color color = { 0x00, 0x00, 0x00, 0x00 };
 	SDL_Rect text_rect;
 
-	textSurface = TTF_RenderUTF8_Blended(font, text.c_str(), color);
+	textSurface = TTF_RenderUTF8_Blended(font, text.c_str(), Colors.element_text);
 	if (textSurface == nullptr)
 		return;
 

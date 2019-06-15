@@ -1,35 +1,37 @@
 #pragma once
 #include "SDL.h"
 #include "SDL_ttf.h"
+#include "color.h"
 #include "iostream"
 using namespace std;
 
-// Базовый класс для элементов управления
 class Control {
 protected:
-	SDL_Rect* sizes; // размеры элемента
-	string label; // текст на элементе
-	TTF_Font* font; // шрифт для надписей
-	int font_size; // размер шрифта
+	SDL_Rect* sizes; 
+	string label; 
+	TTF_Font* font; 
+	int font_size; 
 
 	SDL_Renderer* renderer;
 
-	bool block; // флаг для блокировки
-	bool display; // флаг для отображения
+	COLOR Colors;
+
+	bool block; 
+	bool display; 
 public:
 	Control(SDL_Renderer* renderer, SDL_Rect _sizes, string _font, int _font_size);
 	~Control();
 public:
-	virtual void render(); // функция отображения тела элемента
-	virtual void renderLabel(string text, SDL_Rect* place); // функция отображения текста элемента
+	virtual void render(); 
+	virtual void renderLabel(string text, SDL_Rect* place); 
 
-	void Block(bool value); // функция задающая переменной block значение value
-	bool Block(); // функция возвращающая текущее значение переменной block
+	void Block(bool value); 
+	bool Block(); 
 
-	void Display(bool value); // функция задающая переменной display значение value
-	bool Display(); // функция возвращающая текущее значение переменной display
+	void Display(bool value); 
+	bool Display(); 
 
-	bool Hover(int x, int y); // функция проверяющая входит ли эта точка в элемент
+	bool Hover(int x, int y); 
 
-	virtual void onEvent(SDL_Event* event); // функция отслеживания событий
+	virtual void onEvent(SDL_Event* event); 
 };
