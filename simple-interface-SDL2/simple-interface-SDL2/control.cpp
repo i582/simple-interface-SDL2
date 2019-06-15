@@ -1,12 +1,13 @@
 #include "control.h"
 
-Control::Control(SDL_Renderer* _renderer, SDL_Rect _sizes, string _font, int _font_size)
+Control::Control(SDL_Renderer* _renderer, SDL_Rect _sizes, string _font, int _font_size, int _text_align)
 {
 	renderer = _renderer;
 	font_size = _font_size;
 	*sizes = _sizes;
 
 	label = "";
+	text_align = _text_align;
 
 	block = false;
 	display = true;
@@ -37,7 +38,12 @@ void Control::renderLabel(string text, SDL_Rect* place)
 	text_rect.w = textSurface->w;
 	text_rect.h = textSurface->h;
 	
-	text_rect.x = place->x + place->w / 2 - textSurface->w / 2;
+
+	if (text_align == LEFT_ALIGN)
+		text_rect.x = place->x + 10;
+	else if (text_align == CENTERED_ALIGN)
+		text_rect.x = place->x + place->w / 2 - textSurface->w / 2;
+
 	text_rect.y = place->y + place->h / 2 - textSurface->h / 1.88;
 
 	textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);

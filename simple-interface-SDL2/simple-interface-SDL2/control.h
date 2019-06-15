@@ -5,6 +5,11 @@
 #include "iostream"
 using namespace std;
 
+enum TYPE_ALIGN {
+	CENTERED_ALIGN,
+	LEFT_ALIGN
+};
+
 class Control {
 protected:
 	SDL_Rect* sizes; 
@@ -16,14 +21,16 @@ protected:
 
 	COLOR Colors;
 
+	int text_align;
+
 	bool block; 
 	bool display; 
 public:
-	Control(SDL_Renderer* renderer, SDL_Rect _sizes, string _font, int _font_size);
+	Control(SDL_Renderer* renderer, SDL_Rect _sizes, string _font, int _font_size, int _text_align);
 	~Control();
 public:
 	virtual void render(); 
-	virtual void renderLabel(string text, SDL_Rect* place); 
+	virtual void renderLabel(string text, SDL_Rect* place);
 
 	void Block(bool value); 
 	bool Block(); 
