@@ -4,32 +4,32 @@
 #include "iostream"
 using namespace std;
 
-// Базовый класс для элементов управления
+// Р‘Р°Р·РѕРІС‹Р№ РєР»Р°СЃСЃ РґР»СЏ СЌР»РµРјРµРЅС‚РѕРІ СѓРїСЂР°РІР»РµРЅРёСЏ
 class Control {
 protected:
-	SDL_Rect* sizes; // размеры элемента
-	string label; // текст на элементе
-	TTF_Font* font; // шрифт для надписей
-	int font_size; // размер шрифта
+	SDL_Rect* sizes; // СЂР°Р·РјРµСЂС‹ СЌР»РµРјРµРЅС‚Р°
+	string label; // С‚РµРєСЃС‚ РЅР° СЌР»РµРјРµРЅС‚Рµ
+	TTF_Font* font; // С€СЂРёС„С‚ РґР»СЏ РЅР°РґРїРёСЃРµР№
+	int font_size; // СЂР°Р·РјРµСЂ С€СЂРёС„С‚Р°
 
 	SDL_Renderer* renderer;
 
-	bool block; // флаг для блокировки
-	bool display; // флаг для отображения
+	bool block; // С„Р»Р°Рі РґР»СЏ Р±Р»РѕРєРёСЂРѕРІРєРё
+	bool display; // С„Р»Р°Рі РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ
 public:
 	Control(SDL_Renderer* renderer, SDL_Rect _sizes, string _font, int _font_size);
 	~Control();
 public:
-	virtual void render(); // функция отображения тела элемента
-	virtual void renderLabel(string text, SDL_Rect* place); // функция отображения текста элемента
+	virtual void render(); // С„СѓРЅРєС†РёСЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ С‚РµР»Р° СЌР»РµРјРµРЅС‚Р°
+	virtual void renderLabel(string text, SDL_Rect* place); // С„СѓРЅРєС†РёСЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ С‚РµРєСЃС‚Р° СЌР»РµРјРµРЅС‚Р°
 
-	void Block(bool value); // функция задающая переменной block значение value
-	bool Block(); // функция возвращающая текущее значение переменной block
+	void Block(bool value); // С„СѓРЅРєС†РёСЏ Р·Р°РґР°СЋС‰Р°СЏ РїРµСЂРµРјРµРЅРЅРѕР№ block Р·РЅР°С‡РµРЅРёРµ value
+	bool Block(); // С„СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°СЋС‰Р°СЏ С‚РµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ block
 
-	void Display(bool value); // функция задающая переменной display значение value
-	bool Display(); // функция возвращающая текущее значение переменной display
+	void Display(bool value); // С„СѓРЅРєС†РёСЏ Р·Р°РґР°СЋС‰Р°СЏ РїРµСЂРµРјРµРЅРЅРѕР№ display Р·РЅР°С‡РµРЅРёРµ value
+	bool Display(); // С„СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°СЋС‰Р°СЏ С‚РµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ display
 
-	bool Hover(int x, int y); // функция проверяющая входит ли эта точка в элемент
+	bool Hover(int x, int y); // С„СѓРЅРєС†РёСЏ РїСЂРѕРІРµСЂСЏСЋС‰Р°СЏ РІС…РѕРґРёС‚ Р»Рё СЌС‚Р° С‚РѕС‡РєР° РІ СЌР»РµРјРµРЅС‚
 
-	virtual void onEvent(SDL_Event* event); // функция отслеживания событий
+	virtual void onEvent(SDL_Event* event); // С„СѓРЅРєС†РёСЏ РѕС‚СЃР»РµР¶РёРІР°РЅРёСЏ СЃРѕР±С‹С‚РёР№
 };
