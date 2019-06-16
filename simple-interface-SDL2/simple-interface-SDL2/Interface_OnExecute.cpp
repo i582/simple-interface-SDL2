@@ -26,6 +26,18 @@ int Interface::onExecute()
 	
 	Inputs.push_back(newInput);
 
+	SDL_Rect mainList1 = { 520, 240, 160, 20 };
+	SDL_Rect item1 = { -1, -1, 160, 20 };
+	DropDownList* DropDownList2 = new DropDownList(renderer, mainList1, item1, LEFT_SIDE, "fonts/verdana.ttf", 12, LEFT_ALIGN);
+
+
+	DropDownList2->add("Base class", DROP_BASE_CLASS);
+	DropDownList2->add("Identification class", DROP_ID_CLASS);
+	DropDownList2->add("Binary string class", DROP_BIN_CLASS);
+
+
+	DropDownLists.push_back(DropDownList2);
+
 	//SDL_Rect mainList = { 520, 100, 160, 20 };
 	//SDL_Rect item = { -1, -1, 30, 20 };
 	//DropDownList* DropDownList1 = new DropDownList(renderer, &mainList, &item, LEFT_SIDE, "fonts/verdana.ttf", 12);

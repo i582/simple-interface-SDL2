@@ -73,7 +73,6 @@ private:
 
 	void mouseButtonDown(SDL_Event* event);
 	void mouseButtonUp(SDL_Event* event);
-	void mouseMotion(SDL_Event* event);
 
 	void quit();
 

@@ -23,7 +23,7 @@ void DropDownList::render()
 
 	if (drop_type == LEFT_SIDE) {
 		renderRect.x = sizes->x + sizes->w + 2;
-		renderRect.y = sizes->y - 1;
+		renderRect.y = sizes->y;
 	}
 	else if (drop_type == DOWN_SIDE) {
 		renderRect.x = sizes->x;
