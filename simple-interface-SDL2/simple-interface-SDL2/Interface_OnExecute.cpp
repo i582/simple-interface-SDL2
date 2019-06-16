@@ -38,6 +38,15 @@ int Interface::onExecute()
 
 	DropDownLists.push_back(DropDownList2);
 
+	SDL_Rect itemList_ItemRect = { -1, -1, 160, 20 };
+	SDL_Rect itemListRect1 = { 850, 125, 160, 20 };
+	ItemList* itemList1 = new ItemList(renderer, itemListRect1, itemList_ItemRect, "String", "fonts/verdana.ttf", 12, LEFT_ALIGN);
+
+	itemList1->add("Operator =", TEST_STRING_EQUAL);
+	itemList1->add("Get length", TEST_STRING_GET_LENGTH);
+
+	ItemLists.push_back(itemList1);
+
 	//SDL_Rect mainList = { 520, 100, 160, 20 };
 	//SDL_Rect item = { -1, -1, 30, 20 };
 	//DropDownList* DropDownList1 = new DropDownList(renderer, &mainList, &item, LEFT_SIDE, "fonts/verdana.ttf", 12);

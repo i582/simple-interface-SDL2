@@ -12,7 +12,7 @@ void ItemList::render()
 
 	SDL_Rect render_rect = *item_sizes;
 	render_rect.x = sizes->x + sizes->w + 2;
-	render_rect.y = sizes->y - 1;
+	render_rect.y = sizes->y;
 
 	if (block)
 		SDL_SetRenderDrawColor(renderer, Colors.element_blocked.r, Colors.element_blocked.g, Colors.element_blocked.b, Colors.element_blocked.a);
@@ -41,6 +41,8 @@ void ItemList::render()
 		SDL_SetRenderDrawColor(renderer, Colors.background.r, Colors.background.g, Colors.background.b, Colors.background.a);
 		SDL_RenderFillRect(renderer, &clear_rect);
 	}
+
+	SDL_RenderPresent(renderer);
 }
 
 void ItemList::add(string text, int flag)

@@ -19,6 +19,92 @@ void Interface::mouseButtonUp(SDL_Event* event)
 		}
 	}
 
+
+	for (int i = 0; i < ItemLists.size(); i++) {
+		int flag = ItemLists.at(i)->checkItemHover(x, y);
+
+		if (ItemLists.at(i)->Hover(x, y)) {
+
+			if (!ItemLists.at(i)->open()) {
+				for (int i = 0; i < ItemLists.size(); i++) {
+					ItemLists.at(i)->open(false);
+					ItemLists.at(i)->render();
+				}
+
+				ItemLists.at(i)->open(true);
+				ItemLists.at(i)->render();
+			}
+			else {
+				ItemLists.at(i)->open(false);
+				ItemLists.at(i)->render();
+			}
+		}
+		else {
+
+			if (flag) {
+
+				for (size_t i = 0; i < ItemLists.size(); i++) {
+					ItemLists.at(i)->open(false);
+					ItemLists.at(i)->render();
+				}
+
+				switch (flag)
+				{
+
+				case TEST_STRING_EQUAL: {
+
+					break;
+				}
+
+				case TEST_STRING_GET_LENGTH: {
+
+					break;
+				}
+
+
+				case TEST_IDENTIFICATION_OPERATOR_TO_LOWER_CASE: {
+
+					break;
+				}
+
+				case TEST_IDENTIFICATION_OPERATOR_EQUAL: {
+
+					break;
+				}
+
+				case TEST_IDENTIFICATION_OPERATOR_SUBTRACTION: {
+
+					break;
+				}
+
+				case TEST_IDENTIFICATION_INDEX_OF: {
+
+					break;
+				}
+
+				case TEST_BINARY_REVERSE: {
+
+					break;
+				}
+
+				case TEST_BINARY_SUBTRACTION: {
+
+					break;
+				}
+
+				default: break;
+				}
+			}
+			else {
+				if (ItemLists.at(i)->open()) {
+					ItemLists.at(i)->open(false);
+					ItemLists.at(i)->render();
+				}
+			}
+		}
+	}
+
+
 	for (int i = 0; i < DropDownLists.size(); i++)
 	{
 		int flag = DropDownLists.at(i)->checkItemHover(x, y);
