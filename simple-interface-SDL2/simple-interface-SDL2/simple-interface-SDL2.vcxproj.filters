@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Исходные файлы\Interface">
+      <UniqueIdentifier>{a90c679f-3f0f-4b45-93a0-29db2cc71371}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\string clases">
+      <UniqueIdentifier>{9e33fd75-cc52-4c91-9099-2f5bce6aacf1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -36,8 +42,32 @@
     <ClCompile Include="itemList.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Interface.cpp">
+      <Filter>Исходные файлы\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Interface_OnEvent.cpp">
+      <Filter>Исходные файлы\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Interface_OnEvent_Function.cpp">
+      <Filter>Исходные файлы\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Interface_OnExecute.cpp">
+      <Filter>Исходные файлы\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="string_classes\BIN_String.cpp">
+      <Filter>Исходные файлы\string clases</Filter>
+    </ClCompile>
+    <ClCompile Include="string_classes\Dec_String.cpp">
+      <Filter>Исходные файлы\string clases</Filter>
+    </ClCompile>
     <ClCompile Include="dropDownList.cpp">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="string_classes\ID_String.cpp">
+      <Filter>Исходные файлы\string clases</Filter>
+    </ClCompile>
+    <ClCompile Include="string_classes\String.cpp">
+      <Filter>Исходные файлы\string clases</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +94,21 @@
     </ClInclude>
     <ClInclude Include="dropDownList.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface.h">
+      <Filter>Исходные файлы\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="string_classes\BIN_String.h">
+      <Filter>Исходные файлы\string clases</Filter>
+    </ClInclude>
+    <ClInclude Include="string_classes\Dec_String.h">
+      <Filter>Исходные файлы\string clases</Filter>
+    </ClInclude>
+    <ClInclude Include="string_classes\ID_String.h">
+      <Filter>Исходные файлы\string clases</Filter>
+    </ClInclude>
+    <ClInclude Include="string_classes\String.h">
+      <Filter>Исходные файлы\string clases</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

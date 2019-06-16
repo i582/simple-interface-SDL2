@@ -1,12 +1,13 @@
 #include "control.h"
 
-Control::Control(SDL_Renderer* _renderer, SDL_Rect _sizes, string _font, int _font_size, int _text_align)
+Control::Control(SDL_Renderer* _renderer, SDL_Rect _sizes, string _label, string _font, int _font_size, int _text_align)
 {
 	renderer = _renderer;
 	font_size = _font_size;
+	sizes = new SDL_Rect;
 	*sizes = _sizes;
 
-	label = "";
+	label = _label;
 	text_align = _text_align;
 
 	block = false;
@@ -18,6 +19,7 @@ Control::Control(SDL_Renderer* _renderer, SDL_Rect _sizes, string _font, int _fo
 Control::~Control()
 {
 	TTF_CloseFont(font);
+	delete sizes;
 }
 
 void Control::render()

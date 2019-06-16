@@ -13,8 +13,8 @@ enum DROP_TYPE {
 	DOWN_SIDE 
 };
 
-typedef struct Item {
-	Item() {
+typedef struct DropDownItem {
+	DropDownItem() {
 		text = "";
 		hover = false;
 		block = false;
@@ -42,11 +42,11 @@ typedef struct Item {
 	bool Block() {
 		return block;
 	}
-} Item;
+} DropDownItem;
 
 class DropDownList : public Control {
 private:
-	vector <Item*> List;
+	vector <DropDownItem*> List;
 	SDL_Rect* item_sizes;
 
 	bool show_list;
@@ -56,19 +56,21 @@ private:
 
 public:
 
-	DropDownList(SDL_Renderer* _renderer, SDL_Rect _sizes, SDL_Rect _itemSizes, int _drop_type, string _font, int _font_size, int _text_align) : Control(_renderer, _sizes, _font, _font_size, _text_align)
+	DropDownList(SDL_Renderer* _renderer, SDL_Rect _sizes, SDL_Rect _itemSizes, int _drop_type, string _font, int _font_size, int _text_align) : Control(_renderer, _sizes, "", _font, _font_size, _text_align)
 	{
 		drop_type = _drop_type;
+		item_sizes = new SDL_Rect;
 		*item_sizes = _itemSizes;
 		
 		show_list = false;
 	};
+	~DropDownList();
 
 public:
 
 	void render();
 
-	Item* add(string text, int flag);
+	DropDownItem* add(string text, int flag);
 
 	void open(bool value);
 	bool open();
@@ -79,7 +81,7 @@ public:
 	string getValue();
 
 	int getFlag();
-	const vector <Item*>* getItems();
+	const vector <DropDownItem*>* getItems();
 
 	void clear();
 

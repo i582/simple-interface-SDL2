@@ -13,7 +13,7 @@ class Button : public Control {
 private:
 	int type;
 public:
-	Button(SDL_Renderer* _renderer, SDL_Rect _sizes, string _text, int _type, string _font, int _font_size, int _text_align) : Control(_renderer, _sizes, _font, _font_size, _text_align)
+	Button(SDL_Renderer* _renderer, SDL_Rect _sizes, string _text, int _type, string _font, int _font_size, int _text_align) : Control(_renderer, _sizes, _text, _font, _font_size, _text_align)
 	{
 		type = _type;
 	};

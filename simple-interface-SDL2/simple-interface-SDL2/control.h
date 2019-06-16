@@ -27,7 +27,7 @@ protected:
 	bool block; 
 	bool display; 
 public:
-	Control(SDL_Renderer* renderer, SDL_Rect _sizes, string _font, int _font_size, int _text_align);
+	Control(SDL_Renderer* renderer, SDL_Rect _sizes, string _label, string _font, int _font_size, int _text_align);
 	~Control();
 public:
 	virtual void render(); 

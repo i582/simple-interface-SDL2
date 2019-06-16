@@ -137,6 +137,18 @@ bool Interface::init()
 	return true;
 }
 
+void Interface::mouseButtonDown(SDL_Event* event)
+{
+}
+
+void Interface::mouseButtonUp(SDL_Event* event)
+{
+}
+
+void Interface::mouseMotion(SDL_Event* event)
+{
+}
+
 void Interface::quit()
 {
 	running = false;

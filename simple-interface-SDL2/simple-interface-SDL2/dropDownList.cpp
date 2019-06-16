@@ -1,5 +1,10 @@
 #include "dropDownList.h"
 
+DropDownList::~DropDownList()
+{
+	delete item_sizes;
+}
+
 void DropDownList::render()
 {
 	if (!display) {
@@ -58,9 +63,9 @@ void DropDownList::render()
 	SDL_RenderPresent(renderer);
 }
 
-Item* DropDownList::add(string text, int flag)
+DropDownItem* DropDownList::add(string text, int flag)
 {
-	Item* newItem = new Item;
+	DropDownItem* newItem = new DropDownItem;
 	newItem->text = text;
 	newItem->flag = flag;
 
@@ -126,7 +131,7 @@ int DropDownList::getFlag()
 	return flag_select;
 }
 
-const vector<Item*>* DropDownList::getItems()
+const vector<DropDownItem*>* DropDownList::getItems()
 {
 	return &List;
 }

@@ -77,6 +77,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\SDL2\SDL2_ttf-2.0.15\include;C:\SDL2\SDL2_image-2.0.4\include;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,9 +131,17 @@
     <ClCompile Include="control.cpp" />
     <ClCompile Include="dropDownList.cpp" />
     <ClCompile Include="input.cpp" />
+    <ClCompile Include="Interface.cpp" />
+    <ClCompile Include="Interface_OnEvent.cpp" />
+    <ClCompile Include="Interface_OnEvent_Function.cpp" />
+    <ClCompile Include="Interface_OnExecute.cpp" />
     <ClCompile Include="itemList.cpp" />
     <ClCompile Include="label.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="string_classes\BIN_String.cpp" />
+    <ClCompile Include="string_classes\Dec_String.cpp" />
+    <ClCompile Include="string_classes\ID_String.cpp" />
+    <ClCompile Include="string_classes\String.cpp" />
     <ClCompile Include="textField.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -141,8 +150,13 @@
     <ClInclude Include="control.h" />
     <ClInclude Include="dropDownList.h" />
     <ClInclude Include="input.h" />
+    <ClInclude Include="Interface.h" />
     <ClInclude Include="itemList.h" />
     <ClInclude Include="label.h" />
+    <ClInclude Include="string_classes\BIN_String.h" />
+    <ClInclude Include="string_classes\Dec_String.h" />
+    <ClInclude Include="string_classes\ID_String.h" />
+    <ClInclude Include="string_classes\String.h" />
     <ClInclude Include="textField.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

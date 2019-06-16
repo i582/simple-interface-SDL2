@@ -1,5 +1,10 @@
 #include "itemList.h"
 
+ItemList::~ItemList()
+{
+	delete item_sizes;
+}
+
 void ItemList::render()
 {
 	if (!display)

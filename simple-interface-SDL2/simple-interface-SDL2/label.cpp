@@ -16,6 +16,7 @@ void Label::render()
 	}
 
 	renderLabel(label, sizes);
+	SDL_RenderPresent(renderer);
 }
 
 void Label::setText(string text)

@@ -39,13 +39,14 @@ private:
 	bool show_list;
 
 public:
-	ItemList(SDL_Renderer* _renderer, SDL_Rect _sizes, SDL_Rect _item_sizes, string _label, string _font, int _font_size, int _align_type) : Control(_renderer, _sizes, _font, _font_size, _align_type)
+	ItemList(SDL_Renderer* _renderer, SDL_Rect _sizes, SDL_Rect _item_sizes, string _label, string _font, int _font_size, int _align_type) : Control(_renderer, _sizes, _label, _font, _font_size, _align_type)
 	{
-		label = _label;
+		item_sizes = new SDL_Rect;
 		*item_sizes = _item_sizes;
 
 		show_list = false;
 	};
+	~ItemList();
 
 public:
 	void render();
