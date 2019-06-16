@@ -4,6 +4,37 @@ void Interface::mouseButtonDown(SDL_Event* event)
 {
 	int x, y;
 	SDL_GetMouseState(&x, &y);
+
+
+	for (int i = 0; i < Buttons.size(); i++) {
+		if (Buttons.at(i)->Hover(x, y)) {
+
+			switch (i)
+			{
+
+			case BUTTON_OK_COUNT_ELEMENT: {
+				
+				break;
+			}
+
+			case BUTTON_OK_SET_START_VALUE: {
+				
+				break;
+			}
+
+			case BUTTON_OK_PERFORM_OPERATION: {
+
+				break;
+			}
+
+			case BUTTON_QUIT: {
+				quit();
+				break;
+			}
+			default: break;
+			}
+		}
+	}
 }
 
 void Interface::mouseButtonUp(SDL_Event* event)

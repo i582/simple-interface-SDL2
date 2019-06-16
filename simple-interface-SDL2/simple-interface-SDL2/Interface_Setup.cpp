@@ -1,8 +1,37 @@
 #include "Interface.h"
 
+enum BUTTON_TYPES {
+	BUTTON_OK_COUNT_ELEMENT,
+	BUTTON_OK_SET_START_VALUE,
+
+	BUTTON_OK_PERFORM_OPERATION,
+	BUTTON_QUIT
+};
+
+enum STRING_CLASS_ID {
+	STRING_BASE,
+	STRING_ID,
+	STRING_BIN
+};
+
+enum ITEM_LIST_TYPES {
+	NULLELE,
+
+	TEST_STRING_EQUAL,
+	TEST_STRING_GET_LENGTH,
+
+	TEST_IDENTIFICATION_OPERATOR_TO_LOWER_CASE,
+	TEST_IDENTIFICATION_OPERATOR_EQUAL,
+	TEST_IDENTIFICATION_OPERATOR_SUBTRACTION,
+	TEST_IDENTIFICATION_INDEX_OF,
+
+	TEST_BINARY_REVERSE,
+	TEST_BINARY_SUBTRACTION
+};
+
 void Interface::setup()
 {
-	Control::renderer = _renderer;
+	Control::renderer = renderer;
 
 	SDL_Rect coord = { 520, 80, 0, 20 };
 	Label* label = new Label(coord, "Count of Elements", "fonts/verdana.ttf", 11, LEFT_ALIGN);
@@ -44,6 +73,11 @@ void Interface::setup()
 	itemList1->add("Get length", TEST_STRING_GET_LENGTH);
 
 	ItemLists.push_back(itemList1);
+
+	SDL_Rect coord6 = { 0, 0, 400, 500 };
+	TextField* textField = new TextField(coord6, "fonts/verdana.ttf", 11, LEFT_ALIGN);
+
+	TextFields.push_back(textField);
 
 	//SDL_Rect mainList = { 520, 100, 160, 20 };
 	//SDL_Rect item = { -1, -1, 30, 20 };

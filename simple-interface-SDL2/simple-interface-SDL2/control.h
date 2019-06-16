@@ -32,18 +32,18 @@ protected:
 public:
 	Control(SDL_Rect _sizes, string _label, string _font, int _font_size, int _text_align);
 	~Control();
-public:
-	virtual void render(); 
+protected:
+	virtual void render();
 	virtual void renderLabel(string text, SDL_Rect* place);
 	virtual void renderLabel(string text, SDL_Rect* place, int _text_align);
+	virtual void onEvent(SDL_Event* event);
 
+public:
 	void Block(bool value); 
 	bool Block(); 
 
 	void Display(bool value); 
 	bool Display(); 
 
-	bool Hover(int x, int y); 
-
-	virtual void onEvent(SDL_Event* event); 
+	bool Hover(int x, int y);
 };

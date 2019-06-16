@@ -20,36 +20,12 @@
 
 using namespace std;
 
-
-
-enum STRING_CLASS_ID {
-	STRING_BASE,
-	STRING_ID,
-	STRING_BIN
-};
-
-enum ITEM_LIST_TYPES {
-	NULLELE,
-
-	TEST_STRING_EQUAL,
-	TEST_STRING_GET_LENGTH,
-
-	TEST_IDENTIFICATION_OPERATOR_TO_LOWER_CASE,
-	TEST_IDENTIFICATION_OPERATOR_EQUAL,
-	TEST_IDENTIFICATION_OPERATOR_SUBTRACTION,
-	TEST_IDENTIFICATION_INDEX_OF,
-
-	TEST_BINARY_REVERSE,
-	TEST_BINARY_SUBTRACTION
-};
-
-
 class Interface {
 private:
 	bool running;
 
 	SDL_Window* window;
-	SDL_Renderer* _renderer;
+	SDL_Renderer* renderer;
 	SDL_Event event;
 	SDL_Texture* texture;
 

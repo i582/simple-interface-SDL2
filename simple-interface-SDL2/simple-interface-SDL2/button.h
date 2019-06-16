@@ -1,16 +1,6 @@
 #pragma once
 #include "control.h"
 
-enum BUTTON_TYPES {
-	BUTTON_OK_COUNT_ELEMENT,
-	BUTTON_OK_SET_START_VALUE,
-
-	BUTTON_OK_PERFORM_OPERATION,
-	BUTTON_QUIT
-};
-
-
-
 class Button : public Control {
 private:
 	int type;

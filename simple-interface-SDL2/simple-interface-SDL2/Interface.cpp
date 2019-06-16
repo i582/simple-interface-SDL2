@@ -4,7 +4,7 @@ Interface::Interface()
 {
 	running = true;
 	window = nullptr;
-	_renderer = nullptr;
+	renderer = nullptr;
 	texture = nullptr;
 
 	screenWidth = 1280;
@@ -22,7 +22,7 @@ Interface::Interface(short width, short height)
 {
 	running = true;
 	window = nullptr;
-	_renderer = nullptr;
+	renderer = nullptr;
 	texture = nullptr;
 
 	screenWidth = width;
@@ -38,11 +38,11 @@ Interface::Interface(short width, short height)
 Interface::~Interface()
 {
 	SDL_DestroyTexture(texture);
-	SDL_DestroyRenderer(_renderer);
+	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 
 	window = nullptr;
-	_renderer = nullptr;
+	renderer = nullptr;
 	texture = nullptr;
 	SDL_Quit();
 
@@ -80,10 +80,10 @@ Interface::~Interface()
 void Interface::render()
 {
 
-	SDL_SetRenderDrawColor(_renderer, Colors.background.r, Colors.background.g, Colors.background.b, Colors.background.a);
-	SDL_RenderFillRect(_renderer, NULL);
+	SDL_SetRenderDrawColor(renderer, Colors.background.r, Colors.background.g, Colors.background.b, Colors.background.a);
+	SDL_RenderFillRect(renderer, NULL);
 
-	SDL_RenderPresent(_renderer);
+	SDL_RenderPresent(renderer);
 
 
 	for (int i = 0; i < Buttons.size(); i++)
@@ -120,7 +120,7 @@ bool Interface::init()
 		return false;
 	}
 
-	if ((_renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED)) == nullptr) {
+	if ((renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED)) == nullptr) {
 		printf("Renderer could not be created! SDL Error: %s\n", SDL_GetError());
 		return false;
 	}
