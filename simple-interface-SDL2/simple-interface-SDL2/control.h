@@ -3,6 +3,7 @@
 #include "SDL_ttf.h"
 #include "color.h"
 #include "iostream"
+#include "vector"
 using namespace std;
 
 enum TYPE_ALIGN {

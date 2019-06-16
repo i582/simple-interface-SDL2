@@ -129,14 +129,19 @@
     <ClCompile Include="button.cpp" />
     <ClCompile Include="control.cpp" />
     <ClCompile Include="input.cpp" />
+    <ClCompile Include="itemList.cpp" />
+    <ClCompile Include="label.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="textField.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="button.h" />
     <ClInclude Include="color.h" />
     <ClInclude Include="control.h" />
     <ClInclude Include="input.h" />
+    <ClInclude Include="itemList.h" />
     <ClInclude Include="label.h" />
+    <ClInclude Include="textField.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
