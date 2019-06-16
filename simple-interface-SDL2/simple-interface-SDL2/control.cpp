@@ -1,8 +1,9 @@
 #include "control.h"
 
-Control::Control(SDL_Renderer* _renderer, SDL_Rect _sizes, string _label, string _font, int _font_size, int _text_align)
+SDL_Renderer* Control::renderer = nullptr;
+
+Control::Control(SDL_Rect _sizes, string _label, string _font, int _font_size, int _text_align)
 {
-	renderer = _renderer;
 	font_size = _font_size;
 	sizes = new SDL_Rect;
 	*sizes = _sizes;

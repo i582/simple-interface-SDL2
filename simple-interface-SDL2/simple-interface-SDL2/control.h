@@ -11,14 +11,17 @@ enum TYPE_ALIGN {
 	LEFT_ALIGN
 };
 
+
+
 class Control {
+public:
+	static SDL_Renderer* renderer;
+
 protected:
 	SDL_Rect* sizes; 
 	string label; 
 	TTF_Font* font; 
 	int font_size; 
-
-	SDL_Renderer* renderer;
 
 	COLOR Colors;
 
@@ -27,7 +30,7 @@ protected:
 	bool block; 
 	bool display; 
 public:
-	Control(SDL_Renderer* renderer, SDL_Rect _sizes, string _label, string _font, int _font_size, int _text_align);
+	Control(SDL_Rect _sizes, string _label, string _font, int _font_size, int _text_align);
 	~Control();
 public:
 	virtual void render(); 

@@ -6,6 +6,7 @@
 
 #include "Color.h"
 
+#include "control.h"
 #include "button.h"
 #include "input.h"
 #include "itemList.h"
@@ -18,6 +19,8 @@
 #include "string_classes/BIN_String.h"
 
 using namespace std;
+
+
 
 enum STRING_CLASS_ID {
 	STRING_BASE,
@@ -46,7 +49,7 @@ private:
 	bool running;
 
 	SDL_Window* window;
-	SDL_Renderer* renderer;
+	SDL_Renderer* _renderer;
 	SDL_Event event;
 	SDL_Texture* texture;
 
@@ -85,6 +88,7 @@ private:
 	void onEvent();
 
 	bool init();
+	void setup();
 
 	void mouseButtonDown(SDL_Event* event);
 	void mouseButtonUp(SDL_Event* event);

@@ -135,6 +135,7 @@
     <ClCompile Include="Interface_OnEvent.cpp" />
     <ClCompile Include="Interface_OnEvent_Function.cpp" />
     <ClCompile Include="Interface_OnExecute.cpp" />
+    <ClCompile Include="Interface_Setup.cpp" />
     <ClCompile Include="itemList.cpp" />
     <ClCompile Include="label.cpp" />
     <ClCompile Include="main.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="string_classes\Dec_String.h" />
     <ClInclude Include="string_classes\ID_String.h" />
     <ClInclude Include="string_classes\String.h" />
+    <ClInclude Include="test.h" />
     <ClInclude Include="textField.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
