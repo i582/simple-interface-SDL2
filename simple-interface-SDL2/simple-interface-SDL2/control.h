@@ -32,6 +32,7 @@ public:
 public:
 	virtual void render(); 
 	virtual void renderLabel(string text, SDL_Rect* place);
+	virtual void renderLabel(string text, SDL_Rect* place, int _text_align);
 
 	void Block(bool value); 
 	bool Block(); 

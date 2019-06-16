@@ -19,12 +19,16 @@ typedef struct Item {
 		hover = value;
 	}
 
+	bool Hover() {
+		return hover;
+	}
+
 	void Block(bool value) {
 		block = value;
 	}
 
-	bool Hover() {
-		return hover;
+	bool Block() {
+		return block;
 	}
 } Item;
 

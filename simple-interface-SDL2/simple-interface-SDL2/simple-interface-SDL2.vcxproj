@@ -128,6 +128,7 @@
   <ItemGroup>
     <ClCompile Include="button.cpp" />
     <ClCompile Include="control.cpp" />
+    <ClCompile Include="dropDownList.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="itemList.cpp" />
     <ClCompile Include="label.cpp" />
@@ -138,6 +139,7 @@
     <ClInclude Include="button.h" />
     <ClInclude Include="color.h" />
     <ClInclude Include="control.h" />
+    <ClInclude Include="dropDownList.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="itemList.h" />
     <ClInclude Include="label.h" />

@@ -2,9 +2,8 @@
 
 void ItemList::render()
 {
-	if (!display) {
+	if (!display)
 		return;
-	}
 
 	SDL_Rect render_rect = *item_sizes;
 	render_rect.x = sizes->x + sizes->w + 2;
@@ -27,7 +26,7 @@ void ItemList::render()
 		{
 			SDL_SetRenderDrawColor(renderer, Colors.element_background.r, Colors.element_background.g, Colors.element_background.b, Colors.element_background.a);
 			SDL_RenderFillRect(renderer, &render_rect);
-			renderLabel(List[i]->text, &render_rect);
+			renderLabel(List[i]->text, &render_rect, LEFT_ALIGN);
 			render_rect.y += render_rect.h;
 		}
 	}
