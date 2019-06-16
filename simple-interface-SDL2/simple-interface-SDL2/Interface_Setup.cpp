@@ -5,7 +5,7 @@ void Interface::setup()
 	Control::renderer = renderer;
 
 
-	// днаюбэре ячдю бюьх щкелемрш
+	// п■п·п▒п░п▓п╛п╒п∙ п║п╝п■п░ п▓п░п╗п≤ п╜п⌡п∙п°п∙п²п╒п╚
 
 
 	SDL_Rect coord = { 520, 80, 0, 20 };
