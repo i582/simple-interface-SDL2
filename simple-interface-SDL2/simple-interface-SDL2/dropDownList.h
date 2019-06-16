@@ -1,11 +1,6 @@
 #pragma once
 #include "control.h"
 
-enum DROP_ITEM_LIST_TYPES {
-	DROP_BASE_CLASS = 10,
-	DROP_ID_CLASS = 11,
-	DROP_BIN_CLASS = 12
-};
 
 enum DROP_TYPE {
 	NULL_EL,

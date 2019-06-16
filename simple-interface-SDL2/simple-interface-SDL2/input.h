@@ -1,13 +1,6 @@
 #pragma once
 #include "control.h"
 
-enum INPUT_TYPES {
-	INPUT_COUNT_ELEMENT,
-	INPUT_START_VALUE,
-
-	INPUT_SYMBOL_INDEX_OF
-};
-
 class Input : public Control {
 private:
 	bool focus;

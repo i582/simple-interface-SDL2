@@ -12,25 +12,8 @@ void Interface::mouseButtonDown(SDL_Event* event)
 			switch (i)
 			{
 
-			case BUTTON_OK_COUNT_ELEMENT: {
-				
-				break;
-			}
-
-			case BUTTON_OK_SET_START_VALUE: {
-				
-				break;
-			}
-
-			case BUTTON_OK_PERFORM_OPERATION: {
-
-				break;
-			}
-
-			case BUTTON_QUIT: {
-				quit();
-				break;
-			}
+				// ДОБАВЬТЕ СЮДА ВАШИ ИДЕНТИФИКАТОРЫ КНОПОК
+			
 			default: break;
 			}
 		}
@@ -82,46 +65,7 @@ void Interface::mouseButtonUp(SDL_Event* event)
 				switch (flag)
 				{
 
-				case TEST_STRING_EQUAL: {
-
-					break;
-				}
-
-				case TEST_STRING_GET_LENGTH: {
-
-					break;
-				}
-
-
-				case TEST_IDENTIFICATION_OPERATOR_TO_LOWER_CASE: {
-
-					break;
-				}
-
-				case TEST_IDENTIFICATION_OPERATOR_EQUAL: {
-
-					break;
-				}
-
-				case TEST_IDENTIFICATION_OPERATOR_SUBTRACTION: {
-
-					break;
-				}
-
-				case TEST_IDENTIFICATION_INDEX_OF: {
-
-					break;
-				}
-
-				case TEST_BINARY_REVERSE: {
-
-					break;
-				}
-
-				case TEST_BINARY_SUBTRACTION: {
-
-					break;
-				}
+					// ДОБАВЬТЕ СЮДА ВАШИ ИДЕНТИФИКАТОРЫ ЭЛЕМЕНТОВ СПИСКА КОТОРЫЕ ВЫ ХОТИТЕ ЗАДЕЙСТВОВАТЬ
 
 				default: break;
 				}
@@ -160,7 +104,7 @@ void Interface::mouseButtonUp(SDL_Event* event)
 		}
 		else if (flag)
 		{
-			DropDownLists.at(i)->setValue(DropDownLists.at(i)->getItems()->at(flag - 10)->text);
+			DropDownLists.at(i)->setValue(DropDownLists.at(i)->getItems()->at(flag - 1)->text);
 			DropDownLists.at(i)->open(false);
 			DropDownLists.at(i)->render();
 		}
