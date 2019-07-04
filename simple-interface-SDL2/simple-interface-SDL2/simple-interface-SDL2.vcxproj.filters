@@ -13,108 +13,108 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Исходные файлы\Interface">
+    <Filter Include="Исходные файлы\string_clases">
+      <UniqueIdentifier>{9e33fd75-cc52-4c91-9099-2f5bce6aacf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\interface">
       <UniqueIdentifier>{a90c679f-3f0f-4b45-93a0-29db2cc71371}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\string clases">
-      <UniqueIdentifier>{9e33fd75-cc52-4c91-9099-2f5bce6aacf1}</UniqueIdentifier>
+    <Filter Include="Исходные файлы\control_element">
+      <UniqueIdentifier>{17d260cc-08c0-4213-b63b-400710440895}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="interface\color.h">
+      <Filter>Исходные файлы\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="interface\Interface.h">
+      <Filter>Исходные файлы\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\button.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\dropDownList.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\input.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\itemList.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\label.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\textField.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+    <ClInclude Include="string_classes\BIN_String.h">
+      <Filter>Исходные файлы\string_clases</Filter>
+    </ClInclude>
+    <ClInclude Include="string_classes\Dec_String.h">
+      <Filter>Исходные файлы\string_clases</Filter>
+    </ClInclude>
+    <ClInclude Include="string_classes\ID_String.h">
+      <Filter>Исходные файлы\string_clases</Filter>
+    </ClInclude>
+    <ClInclude Include="string_classes\String.h">
+      <Filter>Исходные файлы\string_clases</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\base_control.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="interface\Interface.cpp">
+      <Filter>Исходные файлы\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="interface\Interface_OnEvent.cpp">
+      <Filter>Исходные файлы\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="interface\Interface_OnEvent_Function.cpp">
+      <Filter>Исходные файлы\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="interface\Interface_OnExecute.cpp">
+      <Filter>Исходные файлы\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="interface\Interface_Setup.cpp">
+      <Filter>Исходные файлы\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\button.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\dropDownList.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\input.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\itemList.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\label.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\textField.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="string_classes\BIN_String.cpp">
+      <Filter>Исходные файлы\string_clases</Filter>
+    </ClCompile>
+    <ClCompile Include="string_classes\Dec_String.cpp">
+      <Filter>Исходные файлы\string_clases</Filter>
+    </ClCompile>
+    <ClCompile Include="string_classes\ID_String.cpp">
+      <Filter>Исходные файлы\string_clases</Filter>
+    </ClCompile>
+    <ClCompile Include="string_classes\String.cpp">
+      <Filter>Исходные файлы\string_clases</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="button.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="control_elements\base_control.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
     </ClCompile>
-    <ClCompile Include="control.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="input.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="label.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="textField.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="itemList.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Interface.cpp">
-      <Filter>Исходные файлы\Interface</Filter>
-    </ClCompile>
-    <ClCompile Include="Interface_OnEvent.cpp">
-      <Filter>Исходные файлы\Interface</Filter>
-    </ClCompile>
-    <ClCompile Include="Interface_OnEvent_Function.cpp">
-      <Filter>Исходные файлы\Interface</Filter>
-    </ClCompile>
-    <ClCompile Include="Interface_OnExecute.cpp">
-      <Filter>Исходные файлы\Interface</Filter>
-    </ClCompile>
-    <ClCompile Include="string_classes\BIN_String.cpp">
-      <Filter>Исходные файлы\string clases</Filter>
-    </ClCompile>
-    <ClCompile Include="string_classes\Dec_String.cpp">
-      <Filter>Исходные файлы\string clases</Filter>
-    </ClCompile>
-    <ClCompile Include="dropDownList.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="string_classes\ID_String.cpp">
-      <Filter>Исходные файлы\string clases</Filter>
-    </ClCompile>
-    <ClCompile Include="string_classes\String.cpp">
-      <Filter>Исходные файлы\string clases</Filter>
-    </ClCompile>
-    <ClCompile Include="Interface_Setup.cpp">
-      <Filter>Исходные файлы\Interface</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="button.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="color.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="control.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="input.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="label.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="textField.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="itemList.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="dropDownList.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Interface.h">
-      <Filter>Исходные файлы\Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="string_classes\BIN_String.h">
-      <Filter>Исходные файлы\string clases</Filter>
-    </ClInclude>
-    <ClInclude Include="string_classes\Dec_String.h">
-      <Filter>Исходные файлы\string clases</Filter>
-    </ClInclude>
-    <ClInclude Include="string_classes\ID_String.h">
-      <Filter>Исходные файлы\string clases</Filter>
-    </ClInclude>
-    <ClInclude Include="string_classes\String.h">
-      <Filter>Исходные файлы\string clases</Filter>
-    </ClInclude>
-    <ClInclude Include="test.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

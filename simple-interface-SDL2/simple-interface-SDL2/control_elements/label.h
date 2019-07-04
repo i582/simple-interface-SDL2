@@ -1,5 +1,5 @@
 #pragma once
-#include "control.h"
+#include "base_control.h"
 
 class Label : public Control {
 private:

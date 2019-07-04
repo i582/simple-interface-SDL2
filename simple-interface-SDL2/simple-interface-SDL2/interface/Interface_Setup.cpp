@@ -17,7 +17,6 @@ void Interface::setup()
 	Button* newButton1 = new Button(
 		coord,
 		"OK",
-		BUTTON_OK_COUNT_ELEMENT,
 		"fonts/verdana.ttf", 12,
 		CENTERED_ALIGN
 	);

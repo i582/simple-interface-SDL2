@@ -1,4 +1,4 @@
-#include "control.h"
+#include "base_control.h"
 
 SDL_Renderer* Control::renderer = nullptr;
 
@@ -21,6 +21,11 @@ Control::~Control()
 {
 	TTF_CloseFont(font);
 	delete sizes;
+}
+
+bool Control::SDL_SetRenderColor(SDL_Renderer* renderer, SDL_Color color)
+{
+	return !SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 }
 
 void Control::render()
@@ -84,24 +89,44 @@ void Control::renderLabel(string text, SDL_Rect* place, int _text_align)
 	SDL_DestroyTexture(textTexture);
 }
 
-void Control::Block(bool value)
+void Control::onEvent(SDL_Event* event)
 {
-	block = value;
+	// virtual
 }
 
-bool Control::Block()
+void Control::Block()
+{
+	block = true;
+}
+
+void Control::Unlock()
+{
+	block = false;
+}
+
+bool Control::isBlock()
 {
 	return block;
 }
 
-void Control::Display(bool value)
+void Control::Show()
 {
-	display = value;
+	display = true;
 }
 
-bool Control::Display()
+void Control::Hide()
+{
+	display = false;
+}
+
+bool Control::isShow()
 {
 	return display;
+}
+
+void Control::Click(bool value)
+{
+	click = value;
 }
 
 bool Control::Hover(int x, int y)
@@ -110,9 +135,4 @@ bool Control::Hover(int x, int y)
 	if (!block && display)
 		return SDL_PointInRect(&point, sizes);
 	return false;
-}
-
-void Control::onEvent(SDL_Event* event)
-{
-	// virtual
 }
