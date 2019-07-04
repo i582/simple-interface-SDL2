@@ -1,7 +1,7 @@
 #pragma once
 #include "base_control.h"
 
-typedef struct Item {
+struct Item {
 	Item() {
 		text = "";
 		hover = false;
@@ -19,24 +19,30 @@ typedef struct Item {
 		hover = value;
 	}
 
-	bool Hover() {
+	bool is_hover() {
 		return hover;
 	}
 
-	void Block(bool value) {
-		block = value;
+	void Block() {
+		block = true;
 	}
 
-	bool Block() {
+	void Unlock() {
+		block = false;
+	}
+
+	bool is_block() {
 		return block;
 	}
-} Item;
+};
 
 class ItemList : public Control {
 private:
 	vector <Item*> List;
 	SDL_Rect* item_sizes;
 	bool show_list;
+
+	SDL_Texture* image_drop_button;
 
 public:
 	ItemList(SDL_Rect _sizes, SDL_Rect _item_sizes, string _label, string _font, int _font_size, int _align_type) : Control(_sizes, _label, _font, _font_size, _align_type)
@@ -45,7 +51,10 @@ public:
 		*item_sizes = _item_sizes;
 
 		show_list = false;
+
+		image_drop_button = IMG_LoadTexture(renderer, "sfx/drop_button.png");
 	};
+
 	~ItemList();
 
 public:
@@ -53,8 +62,10 @@ public:
 
 	void add(string text, int flag);
 
-	void open(bool value);
-	bool open();
+	void open();
+	void close();
+
+	bool is_open();
 
 	int checkItemHover(int x, int y);
 };

@@ -1,6 +1,7 @@
 #pragma once
 #include "SDL.h"
 #include "SDL_ttf.h"
+#include "SDL_image.h"
 #include "iostream"
 #include "vector"
 #include "../interface/color.h"
@@ -13,7 +14,8 @@ enum ALIGN_TYPE {
 };
 
 
-class Control {
+
+class Control{
 public:
 	static SDL_Renderer* renderer;
 
@@ -48,14 +50,14 @@ public:
 
 	void Block();
 	void Unlock();
-	bool isBlock();
+	bool is_block();
 
 	void Show();
 	void Hide();
-	bool isShow();
+	bool is_show();
 
 	void Click(bool value);
 
 
-	bool Hover(int x, int y);
+	bool is_hover(int x, int y);
 };

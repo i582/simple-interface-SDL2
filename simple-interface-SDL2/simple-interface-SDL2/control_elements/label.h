@@ -9,5 +9,5 @@ public:
 	{};
 public:
 	void render();
-	void setText(string text);
+	void set_text(string text);
 };

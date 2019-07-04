@@ -77,6 +77,7 @@ Interface::~Interface()
 	TTF_Quit();
 }
 
+
 void Interface::render()
 {
 
@@ -86,23 +87,23 @@ void Interface::render()
 	SDL_RenderPresent(renderer);
 
 
-	for (int i = 0; i < Buttons.size(); i++)
+	for (size_t i = 0; i < Buttons.size(); i++)
 		Buttons.at(i)->render();
 
-	for (int i = 0; i < ItemLists.size(); i++)
+	for (size_t i = 0; i < ItemLists.size(); i++)
 		ItemLists.at(i)->render();
 
-	for (int i = 0; i < Labels.size(); i++)
+	for (size_t i = 0; i < Labels.size(); i++)
 		Labels.at(i)->render();
 
-	for (int i = 0; i < DropDownLists.size(); i++)
-		DropDownLists.at(i)->render();
-
-	for (int i = 0; i < TextFields.size(); i++)
+	for (size_t i = 0; i < TextFields.size(); i++)
 		TextFields.at(i)->render();
 
-	for (int i = 0; i < Inputs.size(); i++)
+	for (size_t i = 0; i < Inputs.size(); i++)
 		Inputs.at(i)->render();
+
+	for (size_t i = 0; i < DropDownLists.size(); i++)
+		DropDownLists.at(i)->render();
 
 }
 
@@ -144,3 +145,4 @@ void Interface::quit()
 {
 	running = false;
 }
+

@@ -9,7 +9,7 @@ void Label::render()
 		clearRect.w = 160; // спорный момент, установите в средний размер элемента над которым эта надпись есть
 		clearRect.h += 2;
 
-		SDL_SetRenderDrawColor(renderer, Colors.background.r, Colors.background.g, Colors.background.b, Colors.background.a);
+		SDL_SetRenderColor(renderer, Colors.background);
 		SDL_RenderFillRect(renderer, sizes);
 		SDL_RenderPresent(renderer);
 		return;
@@ -19,7 +19,7 @@ void Label::render()
 	SDL_RenderPresent(renderer);
 }
 
-void Label::setText(string text)
+void Label::set_text(string text)
 {
 	label = text;
 }

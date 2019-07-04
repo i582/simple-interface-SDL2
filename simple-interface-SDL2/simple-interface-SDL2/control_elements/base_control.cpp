@@ -52,7 +52,7 @@ void Control::renderLabel(string text, SDL_Rect* place)
 	else if (text_align == CENTERED_ALIGN)
 		text_rect.x = place->x + place->w / 2 - textSurface->w / 2;
 
-	text_rect.y = place->y + place->h / 2 - textSurface->h / 1.88;
+	text_rect.y = place->y + (int)(place->h / 2) - (int)(textSurface->h / 1.8);
 
 	textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
 	SDL_RenderCopy(renderer, textTexture, NULL, &text_rect);
@@ -80,7 +80,7 @@ void Control::renderLabel(string text, SDL_Rect* place, int _text_align)
 	else if (_text_align == CENTERED_ALIGN)
 		text_rect.x = place->x + place->w / 2 - textSurface->w / 2;
 
-	text_rect.y = place->y + place->h / 2 - textSurface->h / 1.88;
+	text_rect.y = place->y + (int)(place->h / 2) - (int)(textSurface->h / 1.8);
 
 	textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
 	SDL_RenderCopy(renderer, textTexture, NULL, &text_rect);
@@ -104,7 +104,7 @@ void Control::Unlock()
 	block = false;
 }
 
-bool Control::isBlock()
+bool Control::is_block()
 {
 	return block;
 }
@@ -119,7 +119,7 @@ void Control::Hide()
 	display = false;
 }
 
-bool Control::isShow()
+bool Control::is_show()
 {
 	return display;
 }
@@ -127,9 +127,10 @@ bool Control::isShow()
 void Control::Click(bool value)
 {
 	click = value;
+	render();
 }
 
-bool Control::Hover(int x, int y)
+bool Control::is_hover(int x, int y)
 {
 	SDL_Point point = { x, y };
 	if (!block && display)

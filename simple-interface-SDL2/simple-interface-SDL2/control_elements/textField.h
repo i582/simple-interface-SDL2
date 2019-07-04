@@ -12,5 +12,5 @@ public:
 	void add(string newLine);
 
 	void render();
-	void renderText();
+
 };

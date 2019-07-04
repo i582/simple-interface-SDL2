@@ -75,6 +75,7 @@ private:
 
 	SDL_Window* window;
 	SDL_Renderer* renderer;
+
 	SDL_Event event;
 	SDL_Texture* texture;
 
@@ -108,6 +109,7 @@ public:
 	Interface(short width, short height);
 	~Interface();
 
+
 private:
 	void render();
 	void onEvent();
@@ -117,6 +119,7 @@ private:
 
 	void mouseButtonDown(SDL_Event* event);
 	void mouseButtonUp(SDL_Event* event);
+	void mouseMotion(SDL_Event* event);
 
 	void quit();
 

@@ -9,24 +9,39 @@ void Input::render()
 		clearRect.w += 2;
 		clearRect.h += 2;
 
-		SDL_SetRenderDrawColor(renderer, Colors.background.r, Colors.background.g, Colors.background.b, Colors.background.a);
 
+		SDL_SetRenderColor(renderer, Colors.background);
 		SDL_RenderFillRect(renderer, &clearRect);
 		SDL_RenderPresent(renderer);
 		return;
 	}
 
-	if (block) {
-		SDL_SetRenderDrawColor(renderer, Colors.element_blocked.r, Colors.element_blocked.g, Colors.element_blocked.b, Colors.element_blocked.a);
-	}
-	else {
+	SDL_Rect border = *sizes;
+	border.x--;
+	border.y--;
+	border.w += 2;
+	border.h += 2;
+
+	if (focus && !block)
+		SDL_SetRenderColor(renderer, Colors.element_border_click);
+	else
+		SDL_SetRenderColor(renderer, Colors.element_border);
+
+	SDL_RenderFillRect(renderer, &border);
+
+
+
+	if (block)
+		SDL_SetRenderColor(renderer, Colors.element_blocked);
+	else
 		if (focus)
-			SDL_SetRenderDrawColor(renderer, Colors.element_background_focus.r, Colors.element_background_focus.g, Colors.element_background_focus.b, Colors.element_background_focus.a);
+			SDL_SetRenderColor(renderer, Colors.element_background_focus);
 		else
-			SDL_SetRenderDrawColor(renderer, Colors.element_background_unfocus.r, Colors.element_background_unfocus.g, Colors.element_background_unfocus.b, Colors.element_background_unfocus.a);
-	}
+			SDL_SetRenderColor(renderer, Colors.element_background_unfocus);
+	
 	
 	SDL_RenderFillRect(renderer, sizes);
+
 	renderLabel(label, sizes);
 	SDL_RenderPresent(renderer);
 }
@@ -53,7 +68,7 @@ void Input::onEvent(SDL_Event* event)
 
 			case SDL_TEXTINPUT:
 				if (!((event->text.text[0] == 'c' || event->text.text[0] == 'C') && (event->text.text[0] == 'v' || event->text.text[0] == 'V') && SDL_GetModState() & KMOD_CTRL))
-					if (label.size() * (font_size - 2) + 10 < sizes->w)
+					if ((int)label.size() * (font_size - 2) + 10 < sizes->w)
 						label += event->text.text;
 
 				break;
@@ -78,12 +93,19 @@ void Input::onEvent(SDL_Event* event)
 	SDL_StopTextInput();
 }
 
-void Input::Focus(bool value)
+void Input::in_focus()
 {
-	focus = value;
+	focus = true;
+	render();
 }
 
-string Input::getValue()
+void Input::out_focus()
+{
+	focus = false;
+	render();
+}
+
+string Input::get_value()
 {
 	return label;
 }
@@ -91,4 +113,5 @@ string Input::getValue()
 void Input::clear()
 {
 	label = "";
+	render();
 }
