@@ -1,4 +1,4 @@
-#include "control.h"
+#include "base_control.h"
 
 SDL_Renderer* Control::renderer = nullptr;
 
@@ -21,6 +21,11 @@ Control::~Control()
 {
 	TTF_CloseFont(font);
 	delete sizes;
+}
+
+bool Control::SDL_SetRenderColor(SDL_Renderer* renderer, SDL_Color color)
+{
+	return !SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 }
 
 void Control::render()
@@ -47,7 +52,7 @@ void Control::renderLabel(string text, SDL_Rect* place)
 	else if (text_align == CENTERED_ALIGN)
 		text_rect.x = place->x + place->w / 2 - textSurface->w / 2;
 
-	text_rect.y = place->y + place->h / 2 - textSurface->h / 1.88;
+	text_rect.y = place->y + (int)(place->h / 2) - (int)(textSurface->h / 1.8);
 
 	textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
 	SDL_RenderCopy(renderer, textTexture, NULL, &text_rect);
@@ -75,7 +80,7 @@ void Control::renderLabel(string text, SDL_Rect* place, int _text_align)
 	else if (_text_align == CENTERED_ALIGN)
 		text_rect.x = place->x + place->w / 2 - textSurface->w / 2;
 
-	text_rect.y = place->y + place->h / 2 - textSurface->h / 1.88;
+	text_rect.y = place->y + (int)(place->h / 2) - (int)(textSurface->h / 1.8);
 
 	textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
 	SDL_RenderCopy(renderer, textTexture, NULL, &text_rect);
@@ -84,35 +89,51 @@ void Control::renderLabel(string text, SDL_Rect* place, int _text_align)
 	SDL_DestroyTexture(textTexture);
 }
 
-void Control::Block(bool value)
+void Control::onEvent(SDL_Event* event)
 {
-	block = value;
+	// virtual
 }
 
-bool Control::Block()
+void Control::Block()
+{
+	block = true;
+}
+
+void Control::Unlock()
+{
+	block = false;
+}
+
+bool Control::is_block()
 {
 	return block;
 }
 
-void Control::Display(bool value)
+void Control::Show()
 {
-	display = value;
+	display = true;
 }
 
-bool Control::Display()
+void Control::Hide()
+{
+	display = false;
+}
+
+bool Control::is_show()
 {
 	return display;
 }
 
-bool Control::Hover(int x, int y)
+void Control::Click(bool value)
+{
+	click = value;
+	render();
+}
+
+bool Control::is_hover(int x, int y)
 {
 	SDL_Point point = { x, y };
 	if (!block && display)
 		return SDL_PointInRect(&point, sizes);
 	return false;
-}
-
-void Control::onEvent(SDL_Event* event)
-{
-	// virtual
 }

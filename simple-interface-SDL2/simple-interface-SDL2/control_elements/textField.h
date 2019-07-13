@@ -1,5 +1,5 @@
 #pragma once
-#include "control.h"
+#include "base_control.h"
 
 class TextField : public Control {
 private:
@@ -12,5 +12,5 @@ public:
 	void add(string newLine);
 
 	void render();
-	void renderText();
+
 };

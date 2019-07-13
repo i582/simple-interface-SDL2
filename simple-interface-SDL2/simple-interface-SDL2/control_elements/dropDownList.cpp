@@ -14,7 +14,7 @@ void DropDownList::render()
 		clearRect.w += 2;
 		clearRect.h += 2;
 
-		SDL_SetRenderDrawColor(renderer, Colors.background.r, Colors.background.g, Colors.background.b, Colors.background.a);
+		SDL_SetRenderColor(renderer, Colors.background);
 		SDL_RenderFillRect(renderer, &clearRect);
 		return;
 	}
@@ -30,36 +30,69 @@ void DropDownList::render()
 		renderRect.y = sizes->y + sizes->h + 2;
 	}
 
+	// Отрисовка обводки
+	SDL_Rect border = *sizes;
+	border.x--;
+	border.y--;
+	border.w += 2;
+	border.h += 2;
+	SDL_SetRenderColor(renderer, Colors.element_border);
+	SDL_RenderFillRect(renderer, &border);
+
+
+	// Отрисовка тела
 	if (block)
-		SDL_SetRenderDrawColor(renderer, Colors.element_blocked.r, Colors.element_blocked.g, Colors.element_blocked.b, Colors.element_blocked.a);
+		SDL_SetRenderColor(renderer, Colors.element_blocked);
 	else
-		SDL_SetRenderDrawColor(renderer, Colors.element_background_unfocus.r, Colors.element_background_unfocus.g, Colors.element_background_unfocus.b, Colors.element_background_unfocus.a);
+		SDL_SetRenderColor(renderer, Colors.element_background_unfocus);
 
 	SDL_RenderFillRect(renderer, sizes);
 	renderLabel(label, sizes, LEFT_ALIGN);
 	
 
+	// Отрисовка изображения
+	SDL_Rect dropButtonRect = { sizes->x + sizes->w - 15, sizes->y + 6, 8, 8 };
+	SDL_RenderCopy(renderer, image_drop_button, NULL, &dropButtonRect);
+
+
+	//SDL_RenderReadPixels(renderer, NULL, 0, surface->pixels, surface->pitch);
+	////SDL_DestroyTexture(destTexture);
+	////destTexture = SDL_CreateTextureFromSurface(renderer, surface);
+	//SDL_UpdateTexture(destTexture, NULL, surface->pixels, surface->pitch);
+
 	if (show_list && !block) 
 	{
-		for (int i = 0; i < List.size(); i++)
+		for (size_t i = 0; i < List.size(); i++)
 		{
-			if (List.at(i)->Block()) 
-				SDL_SetRenderDrawColor(renderer, Colors.element_blocked.r, Colors.element_blocked.g, Colors.element_blocked.b, Colors.element_blocked.a);
+			if (List.at(i)->is_block()) 
+				SDL_SetRenderColor(renderer, Colors.element_blocked);
 			else
-				SDL_SetRenderDrawColor(renderer, Colors.element_background.r, Colors.element_background.g, Colors.element_background.b, Colors.element_background.a);
+				SDL_SetRenderColor(renderer, Colors.element_background);
 
 			SDL_RenderFillRect(renderer, &renderRect);
-			renderLabel(List[i]->text, &renderRect, LEFT_ALIGN);
+			renderLabel(List.at(i)->text, &renderRect, LEFT_ALIGN);
 			renderRect.y += renderRect.h;
 		}
 	}
 	else 
 	{
-		SDL_Rect clearRect = { renderRect.x, renderRect.y, renderRect.w, renderRect.h * List.size() };
+		//SDL_RenderClear(renderer);
+		//SDL_RenderCopy(renderer, destTexture, NULL, NULL);
+		//SDL_RenderPresent(renderer);
+
+		//SDL_RenderReadPixels(renderer, NULL, 0, surface->pixels, surface->pitch);
+		////SDL_DestroyTexture(destTexture);
+		////destTexture = SDL_CreateTextureFromSurface(renderer, surface);
+		//SDL_UpdateTexture(destTexture, NULL, surface->pixels, surface->pitch);
+
+		SDL_Rect clearRect = { renderRect.x, renderRect.y, renderRect.w, (int)(renderRect.h * List.size()) };
 		SDL_SetRenderDrawColor(renderer, Colors.background.r, Colors.background.g, Colors.background.b, Colors.background.a);
 		SDL_RenderFillRect(renderer, &clearRect);
+
+	
 	}
 
+	
 	SDL_RenderPresent(renderer);
 }
 
@@ -70,13 +103,14 @@ DropDownItem* DropDownList::add(string text, int flag)
 	newItem->flag = flag;
 
 	List.push_back(newItem);
-
+	render();
 	return newItem;
 }
 
 void DropDownList::open(bool value)
 {
 	show_list = value;
+	render();
 }
 
 bool DropDownList::open()
@@ -104,12 +138,12 @@ int DropDownList::checkItemHover(int x, int y)
 
 	int flag = 0;
 
-	for (int i = 0; i < List.size(); i++) {
+	for (size_t i = 0; i < List.size(); i++) {
 		bool hov = SDL_PointInRect(&point, &itemRect);
 		itemRect.y += itemRect.h;
 
 		if (hov) 
-			if (!List.at(i)->Block())
+			if (!List.at(i)->is_block())
 				flag = List.at(i)->flag;
 	}
 	flag_select = flag;
@@ -119,6 +153,7 @@ int DropDownList::checkItemHover(int x, int y)
 void DropDownList::setValue(string value)
 {
 	label = value;
+	render();
 }
 
 string DropDownList::getValue()
@@ -139,10 +174,12 @@ const vector<DropDownItem*>* DropDownList::getItems()
 void DropDownList::clear()
 {
 	label = "";
+	render();
 }
 
 DropDownList* DropDownList::deleteItems()
 {
 	List.clear();
+	render();
 	return this;
 }

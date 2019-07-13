@@ -18,6 +18,40 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="control_elements\button.h" />
+    <ClInclude Include="control_elements\base_control.h" />
+    <ClInclude Include="control_elements\dropDownList.h" />
+    <ClInclude Include="control_elements\input.h" />
+    <ClInclude Include="control_elements\itemList.h" />
+    <ClInclude Include="control_elements\label.h" />
+    <ClInclude Include="control_elements\textField.h" />
+    <ClInclude Include="interface\color.h" />
+    <ClInclude Include="interface\Interface.h" />
+    <ClInclude Include="string_classes\BIN_String.h" />
+    <ClInclude Include="string_classes\Dec_String.h" />
+    <ClInclude Include="string_classes\ID_String.h" />
+    <ClInclude Include="string_classes\String.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="control_elements\button.cpp" />
+    <ClCompile Include="control_elements\base_control.cpp" />
+    <ClCompile Include="control_elements\dropDownList.cpp" />
+    <ClCompile Include="control_elements\input.cpp" />
+    <ClCompile Include="control_elements\itemList.cpp" />
+    <ClCompile Include="control_elements\label.cpp" />
+    <ClCompile Include="control_elements\textField.cpp" />
+    <ClCompile Include="interface\Interface.cpp" />
+    <ClCompile Include="interface\Interface_OnEvent.cpp" />
+    <ClCompile Include="interface\Interface_OnEvent_Function.cpp" />
+    <ClCompile Include="interface\Interface_OnExecute.cpp" />
+    <ClCompile Include="interface\Interface_Setup.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="string_classes\BIN_String.cpp" />
+    <ClCompile Include="string_classes\Dec_String.cpp" />
+    <ClCompile Include="string_classes\ID_String.cpp" />
+    <ClCompile Include="string_classes\String.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{02DF4E91-C987-4E0A-BC03-A4A7AA0E19BD}</ProjectGuid>
@@ -126,41 +160,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="button.cpp" />
-    <ClCompile Include="control.cpp" />
-    <ClCompile Include="dropDownList.cpp" />
-    <ClCompile Include="input.cpp" />
-    <ClCompile Include="Interface.cpp" />
-    <ClCompile Include="Interface_OnEvent.cpp" />
-    <ClCompile Include="Interface_OnEvent_Function.cpp" />
-    <ClCompile Include="Interface_OnExecute.cpp" />
-    <ClCompile Include="Interface_Setup.cpp" />
-    <ClCompile Include="itemList.cpp" />
-    <ClCompile Include="label.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="string_classes\BIN_String.cpp" />
-    <ClCompile Include="string_classes\Dec_String.cpp" />
-    <ClCompile Include="string_classes\ID_String.cpp" />
-    <ClCompile Include="string_classes\String.cpp" />
-    <ClCompile Include="textField.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="button.h" />
-    <ClInclude Include="color.h" />
-    <ClInclude Include="control.h" />
-    <ClInclude Include="dropDownList.h" />
-    <ClInclude Include="input.h" />
-    <ClInclude Include="Interface.h" />
-    <ClInclude Include="itemList.h" />
-    <ClInclude Include="label.h" />
-    <ClInclude Include="string_classes\BIN_String.h" />
-    <ClInclude Include="string_classes\Dec_String.h" />
-    <ClInclude Include="string_classes\ID_String.h" />
-    <ClInclude Include="string_classes\String.h" />
-    <ClInclude Include="test.h" />
-    <ClInclude Include="textField.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -6,17 +6,17 @@
 
 #include "Color.h"
 
-#include "control.h"
-#include "button.h"
-#include "input.h"
-#include "itemList.h"
-#include "label.h"
-#include "dropDownList.h"
-#include "textField.h"
+#include "../control_elements/base_control.h"
+#include "../control_elements/button.h"
+#include "../control_elements/input.h"
+#include "../control_elements/itemList.h"
+#include "../control_elements/label.h"
+#include "../control_elements/dropDownList.h"
+#include "../control_elements/textField.h"
 
-#include "string_classes/String.h"
-#include "string_classes/ID_String.h"
-#include "string_classes/BIN_String.h"
+#include "../string_classes/String.h"
+#include "../string_classes/ID_String.h"
+#include "../string_classes/BIN_String.h"
 
 using namespace std;
 
@@ -75,6 +75,7 @@ private:
 
 	SDL_Window* window;
 	SDL_Renderer* renderer;
+
 	SDL_Event event;
 	SDL_Texture* texture;
 
@@ -108,6 +109,7 @@ public:
 	Interface(short width, short height);
 	~Interface();
 
+
 private:
 	void render();
 	void onEvent();
@@ -117,6 +119,7 @@ private:
 
 	void mouseButtonDown(SDL_Event* event);
 	void mouseButtonUp(SDL_Event* event);
+	void mouseMotion(SDL_Event* event);
 
 	void quit();
 

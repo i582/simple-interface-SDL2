@@ -8,6 +8,10 @@ void Interface::onEvent()
 			switch (event.type)
 			{
 
+			case SDL_MOUSEMOTION:
+				mouseMotion(&event);
+				break;
+
 			case SDL_MOUSEBUTTONDOWN:
 				mouseButtonDown(&event);
 				break;

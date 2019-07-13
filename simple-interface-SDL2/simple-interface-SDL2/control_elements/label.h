@@ -1,5 +1,5 @@
 #pragma once
-#include "control.h"
+#include "base_control.h"
 
 class Label : public Control {
 private:
@@ -9,5 +9,5 @@ public:
 	{};
 public:
 	void render();
-	void setText(string text);
+	void set_text(string text);
 };

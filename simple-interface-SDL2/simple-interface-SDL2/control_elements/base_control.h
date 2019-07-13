@@ -1,19 +1,21 @@
 #pragma once
 #include "SDL.h"
 #include "SDL_ttf.h"
-#include "color.h"
+#include "SDL_image.h"
 #include "iostream"
 #include "vector"
+#include "../interface/color.h"
+
 using namespace std;
 
-enum TYPE_ALIGN {
+enum ALIGN_TYPE {
 	CENTERED_ALIGN,
 	LEFT_ALIGN
 };
 
 
 
-class Control {
+class Control{
 public:
 	static SDL_Renderer* renderer;
 
@@ -27,23 +29,35 @@ protected:
 
 	int text_align;
 
-	bool block; 
-	bool display; 
+	bool block;
+	bool display;
+	bool click;
+
 public:
 	Control(SDL_Rect _sizes, string _label, string _font, int _font_size, int _text_align);
 	~Control();
+
 protected:
+	// 
+	bool SDL_SetRenderColor(SDL_Renderer* renderer, SDL_Color color);
+
 	virtual void render();
 	virtual void renderLabel(string text, SDL_Rect* place);
 	virtual void renderLabel(string text, SDL_Rect* place, int _text_align);
 	virtual void onEvent(SDL_Event* event);
 
 public:
-	void Block(bool value); 
-	bool Block(); 
 
-	void Display(bool value); 
-	bool Display(); 
+	void Block();
+	void Unlock();
+	bool is_block();
 
-	bool Hover(int x, int y);
+	void Show();
+	void Hide();
+	bool is_show();
+
+	void Click(bool value);
+
+
+	bool is_hover(int x, int y);
 };
